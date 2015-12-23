@@ -1,0 +1,88 @@
+{% extends 'resources/right_nav_base.html' %}
+{% block title %}招行清单报表-demo{% endblock %}
+{% block header %}
+    <h1>招行清单报表</h1>
+    <p>demo</p>
+{% endblock %}
+{% block menu %}
+    <li>
+        <a href="#linux_capability">linux清单</a>
+    </li>
+    <li>
+        <a href="#windows_capability">windows清单</a>
+    </li>
+    <li>
+        <a href="#aix_capability">aix清单</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <div id="linux_capability">
+        <h1>LINUX清单报表</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>主机名</td><td>IP</td><td>类型</td>
+                {% for t in template %}
+                    <td>{{ t }} TOP</td><td>{{ t }} AVG</td>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in linux_array %}
+            <tr>
+                <td>{{ item.name }}</td><td>{{ item.ip }}</td><td>{{ item.type }}</td>
+                {% for attrItem in item.attrArray %}
+                    <td>{{ attrItem.top }}</td><td>{{ attrItem.avg }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="windows_capability">
+        <h1>WINDOWS清单报表</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>主机名</td><td>IP</td><td>类型</td>
+                {% for t in template %}
+                    <td>{{ t }} TOP</td><td>{{ t }} AVG</td>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in win_array %}
+            <tr>
+                <td>{{ item.name }}</td><td>{{ item.ip }}</td><td>{{ item.type }}</td>
+                {% for attrItem in item.attrArray %}
+                    <td>{{ attrItem.top }}</td><td>{{ attrItem.avg }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="aix_capability ">
+        <h1>AIX清单报表</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>主机名</td><td>IP</td><td>类型</td>
+                {% for t in template %}
+                    <td>{{ t }} TOP</td><td>{{ t }} AVG</td>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in aix_array %}
+            <tr>
+                <td>{{ item.name }}</td><td>{{ item.ip }}</td><td>{{ item.type }}</td>
+                {% for attrItem in item.attrArray %}
+                    <td>{{ attrItem.top }}</td><td>{{ attrItem.avg }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

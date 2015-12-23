@@ -1,0 +1,24 @@
+{% extends 'resources/right_nav_base.html' %}
+{% block title %}delete{% endblock %}
+{% block header %}
+<h1>首页</h1>
+<p>网站导航</p>
+{% endblock %}
+{% block content %}
+<div class="bs-docs-section">
+    <table class="table">
+        <tr>
+            <td>
+                databases
+            </td>
+        </tr>
+        {% for database in data.databases %}
+            <tr id="{{ database }}">
+                <td>
+                    {{ database }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

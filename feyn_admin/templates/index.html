@@ -1,0 +1,31 @@
+{% extends 'resources/right_nav_base.html' %}
+
+{% block title %}index{% endblock %}
+{% block menu %}
+    <li><a href="#modify_header_color">修改页首背景色</a></li>
+
+{% endblock %}
+{% block header %}
+    <h1>首页</h1>
+<p>
+    皎若星汉 仰观不亵<br>
+    晦如蚁蛉 俯退无伤<br>
+    浩浩正气 乐而歌之<br>
+    攘攘世尘 卷而怀之<br>
+    且敬崇峻 亦畏渊深<br>
+    道费而隐 诚意君子<br>
+</p>
+{% endblock %}
+{% block content %}
+<div id="modify_header_color" >
+    <h1>修改页首背景色</h1>
+    <p>
+        修改/static/assets/css/docs.min.css<br>
+        修改background-image:linear-gradient(to bottom,#D5D5D5 0,#090909 100%);<br>
+        <i>说明:linear-gradient(渐变方向,起始色 透明度,终止色 透明度) </i>
+    </p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+</div>
+{% endblock %}
