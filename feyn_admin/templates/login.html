@@ -13,6 +13,13 @@
     <div class="col-sm-2">
       <input type="text" class="form-control" name="user" id="user" placeholder="用户名" autofocus="autofocus">
     </div>
+    <div class="col-sm-2">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="isNewUser"> 新用户
+        </label>
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="password" class="col-sm-2 control-label">密码</label>
@@ -22,16 +29,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-2">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="isNewUser"> 新用户
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-2">
-      <button type="submit" class="btn btn-default">登录</button>
+      <button type="submit" class="btn btn-default" id="login_button">登录</button>
     </div>
   </div>
 </form>
@@ -41,8 +39,10 @@
         $('#isNewUser').click(function(){
             if(this.checked){
                 $('#login_form').attr('action','/user_add/');
+                $('#login_button').text("注册");
             }else{
                 $('#login_form').attr('action','/user_check/');
+                $('#login_button').text("登录");
             }
         });
     });
