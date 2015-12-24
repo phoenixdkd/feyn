@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}默认标题{% endblock %} - Feyn's</title>
+    <meta name="description" content="{% block description %}Feyn's page{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}Feyn{% endblock %}">
+    {% include 'resources/header.html' %}
+</head>
+<body>
+{% include 'resources/nav.html' %}
+<div class="bs-docs-header">
+    <div class="container">
+        {% block header %}
+            <div>未找到指定模板,请联系管理员</div>
+        {% endblock %}
+    </div>
+</div>
+<div class="container bs-docs-container ">
+    <div class="row">
+        <div class="col-md-10 bg-info" >
+            {% block content %}
+            <div>未找到指定模板,请联系管理员</div>
+            {% endblock %}
+        </div>
+        <div class="col-md-2" >
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav bs-docs-sidenav">
+                    {% block menu %}
+                        {% comment %}<li><a href="#mysql">mysql</a></li>{% endcomment %}
+                    {% endblock %}
+                </ul>
+                <a class="back-to-top" href="#top">
+                  返回顶部
+                </a>
+              </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% include 'resources/bottom.html' %}
+
+</body>
+</html>

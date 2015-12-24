@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'feyn_admin',
+    'cmb_demo',
 ]
 
 MIDDLEWARE_CLASSES = [

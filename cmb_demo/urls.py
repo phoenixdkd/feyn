@@ -15,17 +15,10 @@ Including another URLconf
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
-from feyn_admin import urls as feyn_admin_urls
-from cmb_demo import urls as cmb_demo_urls
+from cmb_demo import views
 
 urlpatterns = [
-    # default admin
-    url(r'^admin/', include(admin.site.urls)),
-
     # cmb report demo
-    url(r'^demo/cmb/', include(cmb_demo_urls)),
-
-    # app feyn_admin [default]
-    url(r'^$', include(feyn_admin_urls)),
+    url(r'^list_report$', views.cmb_list_report, name='cmb_list_report'),
+    url(r'^capability_report$', views.cmb_capability_report, name='cmb_capability_report'),
 ]
