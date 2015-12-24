@@ -5,6 +5,8 @@ from django.db import models
 # Create your models here.
 
 
-class Person(models.Model):
+class User(models.Model):
     name = models.CharField(max_length=30)
     age = models.IntegerField()
+    password = models.CharField(max_length=20)
+    createTime = models.DateField
