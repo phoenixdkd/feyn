@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^demo/cmb/', include(cmb_demo_urls)),
 
     # app feyn_admin [default]
-    url(r'^$', include(feyn_admin_urls)),
+    url(r'', include(feyn_admin_urls)),
 ]
