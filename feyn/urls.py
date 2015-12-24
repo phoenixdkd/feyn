@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='home'),
     url(r'^login/$', views.login, name='login'),
-    url(r'^delete/$', views.delete, name="delete"),
+    url(r'^user/add/$', views.user_add, name="user_add"),
     url(r'^demo/cmb/list_report', views.cmb_list_report, name='cmb_list_report'),
     url(r'^demo/cmb/capability_report$', views.cmb_capability_report, name='cmb_capability_report'),
 ]

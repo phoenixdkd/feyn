@@ -17,9 +17,10 @@ def login(request):
     return render(request, 'login.html', {'data': data})
 
 
-def delete(request):
-    data = {'databases': ['mysql', 'asm']}
-    return render(request, 'delete.html', {'data': data})
+def user_add(request):
+    username = request.GET['user']
+    password = request.GET['password']
+    return render(request, 'user_add.html', {'user': username, 'password': password})
 
 
 def cmb_list_report(request):
