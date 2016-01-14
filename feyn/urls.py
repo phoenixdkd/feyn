@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+import settings
+import os
 from feyn_admin import urls as feyn_admin_urls
 from cmb_demo import urls as cmb_demo_urls
+from django.conf.urls.static import static
 
 urlpatterns = [
     # default admin

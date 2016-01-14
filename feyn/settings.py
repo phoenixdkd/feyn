@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'feyn',
     'feyn_admin',
     'cmb_demo',
 ]
@@ -123,5 +124,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATICFILES_DIRS = [
+
+]
+#STATIC_ROOT = '/home/dengkd/PycharmProjects/feyn/feyn/static'
 
 STATIC_URL = '/static/'
