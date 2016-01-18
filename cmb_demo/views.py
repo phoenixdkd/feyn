@@ -1,10 +1,11 @@
 # coding=utf-8
 
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+@login_required
 def cmb_list_report(request):
     linux_array = []
     template = ['CPU使用率', '内存使用率']
@@ -39,6 +40,7 @@ def cmb_list_report(request):
     return render(request, 'cmb_demo/cmb_list_report.html', data)
 
 
+@login_required
 def cmb_capability_report(request):
     array = []
     template = ['CPU使用率', '内存使用率']

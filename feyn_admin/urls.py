@@ -20,6 +20,7 @@ from feyn_admin import views
 urlpatterns = [
     # cmb report demo
     url(r'^$', views.index, name='index'),
-    url(r'^login/$', views.login, name='login'),
+    url(r'^accounts/login/$', views.login_view, name='login'),
+    url(r'^accounts/logout/$', views.logout_view, name='logout'),
     url(r'^user_add/$', views.user_add, name='user_add'),
 ]

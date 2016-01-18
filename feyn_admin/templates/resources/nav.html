@@ -8,14 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Feyn's</a>
+      <a class="navbar-brand" href="/admin">Feyn's</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="hidden-sm hidden-md"><a href="/"  target="_self" >index</a></li>
-        <li class="hidden-sm hidden-md"><a href="/login"  target="_self" >login</a></li>
+        <li class="hidden-sm hidden-md"><a href="{% url 'login' %}"  target="_self" >login</a></li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">招行报表demo <span class="caret"></span></a>
@@ -32,10 +32,11 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>{% endcomment %}
       <ul class="nav navbar-nav navbar-right">
-          {% if loginStatus %}
-              <li class="hidden-sm hidden-md"><a href="/user_info"  target="_self" >登录成功</a></li>
+          {% if request.user.is_authenticated %}
+              <li class="hidden-sm hidden-md"><a href="/user_info"  target="_self" >{{ request.user }}</a></li>
+              <li class="hidden-sm hidden-md"><a href="/accounts/logout"  target="_self" >注销</a></li>
           {% else %}
-              <li class="hidden-sm hidden-md"><a href="/login"  target="_self" >登录/注册</a></li>
+              <li class="hidden-sm hidden-md"><a href="{% url 'login' %}"  target="_self" >登录/注册</a></li>
           {% endif %}
       </ul>
     </div><!-- /.navbar-collapse -->
