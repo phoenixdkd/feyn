@@ -2,14 +2,13 @@
 # coding=utf-8
 # Create your views here.
 
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-
 
 
 def index(request):
@@ -22,18 +21,42 @@ def index(request):
 
 
 def login_view(request):
-    data = {'databases': ['mysql', 'asm']}
-    return render(request, 'login.html', {'data': data})
+    if 'next' in request.GET:
+        redirect_to = request.GET['next']
+    else:
+        redirect_to = '/'
+    if request.method == 'POST':
+        user = authenticate(username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(redirect_to)
+    return render(request, 'login.html', locals())
 
 
 def logout_view(request):
-    data = {'databases': ['mysql', 'asm']}
     logout(request)
-    return render(request, 'login.html', {'data': data})
+    print request.META
+    redirect_to = request.META['HTTP_REFERER']
+    return HttpResponseRedirect(redirect_to)
 
 
 def user_add(request):
-    username = request.GET['user']
-    password = request.GET['password']
+    if 'next' in request.GET:
+        redirect_to = request.GET['next']
+    else:
+        redirect_to = '/'
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = User.objects.create_user(username=username, password=password, email='')
+        user.save()
+    user = authenticate(username=username, password=password)
+    login(request, user)
+    return HttpResponseRedirect(redirect_to)
+
 
     return render(request, 'user_add.html', {'user': username, 'password': password})
+
+
+def user_info(request):
+    return render(request, 'user_info.html')

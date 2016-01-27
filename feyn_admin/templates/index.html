@@ -3,6 +3,7 @@
 {% block title %}index{% endblock %}
 {% block menu %}
     <li><a href="#modify_header_color">修改页首背景色</a></li>
+    <li><a href="#develop_log_20160127">20160127开发日志</a></li>
 
 {% endblock %}
 {% block header %}
@@ -15,16 +16,15 @@
 {% block content %}
 <div id="modify_header_color" >
     <h1>修改页首背景色</h1>
-    <p>
-        修改/static/assets/css/docs.min.css<br>
-        修改background-image:linear-gradient(to bottom,#D5D5D5 0,#090909 100%);<br>
-        <i>说明:linear-gradient(渐变方向,起始色 透明度,终止色 透明度) </i>
-    </p>
-    {% load static %}
-    <img src="{% static "assets/img/login-tab.png" %}" alt="image test"/>
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
+    <pre>修改/static/assets/css/docs.min.css
+修改background-image:linear-gradient(to bottom,#D5D5D5 0,#090909 100%);
+<i>说明:linear-gradient(渐变方向,起始色 透明度,终止色 透明度) </i></pre>
+</div>
+<div id="develop_log_20160127" >
+    <h1>20160127开发日志</h1>
+    <pre>完成用户注册登录功能，feyn_admin部分完成开发。
+增加静态文件访问路径，示例：
+{% load static %}
+<img src="{% static "assets/img/login-tab.png" %}" alt="image test"/></pre>
 </div>
 {% endblock %}

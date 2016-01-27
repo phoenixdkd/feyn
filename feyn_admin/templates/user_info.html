@@ -1,0 +1,14 @@
+{% extends 'resources/right_nav_base.html' %}
+{% block title %}用户信息{% endblock %}
+{% block header %}
+<p>用户信息</p>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <tr><td>用户名</td><td>{{ request.user }}</td></tr>
+        <tr><td>角色</td><td></td></tr>
+        <tr><td>邮箱</td><td></td></tr>
+    </table>
+</div>
+{% endblock %}

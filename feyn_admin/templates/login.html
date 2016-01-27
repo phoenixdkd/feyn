@@ -7,11 +7,11 @@
 {% endblock %}
 {% block content %}
 <div class="container" id="sign_in_box" >
-<form class="form-horizontal" id="login_form" action="/user_check" method="get" autocomplete="on">
+<form class="form-horizontal" id="login_form" action="./?next={{ redirect_to }}" method="post" autocomplete="on">
   <div class="form-group">
-    <label for="user" class="col-sm-2 control-label ">用户名</label>
+    <label for="username" class="col-sm-2 control-label ">用户名</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" name="user" id="user" placeholder="用户名" autofocus="autofocus">
+      <input type="text" class="form-control" name="username" id="username" placeholder="用户名" autofocus="autofocus">
     </div>
     <div class="col-sm-2">
       <div class="checkbox">
@@ -26,6 +26,11 @@
     <div class="col-sm-2">
       <input type="password" class="form-control" name="password" id="password" placeholder="密码">
     </div>
+    <div class="col-sm-2" hidden>
+        <button type="button" class="btn btn-default" aria-label="left align" id="showPassword" rel="1" >
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true" ></span>
+        </button>
+    </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-2">
@@ -38,11 +43,27 @@
     $(function(){
         $('#isNewUser').click(function(){
             if(this.checked){
-                $('#login_form').attr('action','/user_add/');
+                $('#login_form').attr('action','/user_add/?next={{ redirect_to }}');
                 $('#login_button').text("注册");
+                $('#showPassword').parent().show();
             }else{
-                $('#login_form').attr('action','/logon/');
+                $('#login_form').attr('action','./?next={{ redirect_to }}');
                 $('#login_button').text("登录");
+                $('#showPassword').parent().hide();
+                $('#password').attr('type','password');
+            }
+        });
+        $('#showPassword').click(function(){
+            if($(this).attr('rel') == 1){
+                $(this).attr('rel','0');
+                $(this).children("span").addClass("glyphicon-eye-close");
+                $(this).children("span").removeClass("glyphicon-eye-open");
+                $('#password').attr('type','text');
+            }else{
+                $(this).attr('rel','1');
+                $(this).children("span").addClass("glyphicon-eye-open");
+                $(this).children("span").removeClass("glyphicon-eye-close");
+                $('#password').attr('type','password');
             }
         });
     });
