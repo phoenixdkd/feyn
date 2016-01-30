@@ -1,17 +1,15 @@
 {% extends 'resources/right_nav_base.html' %}
 {% block title %}招行容量报表-demo{% endblock %}
 {% block header %}
-<h1>首页</h1>
-<p>网站导航</p>
+<h1>招行容量报表</h1>
+<p>demo</p>
 {% endblock %}
 {% block content %}
 <div class="bs-docs-section">
     <table class="table">
-        <tr>
-            <td>
+        <tr><td>
                 databases
-            </td>
-        </tr>
+        </td></tr>
         {% for database in data.databases %}
             <tr id="{{ database }}">
                 <td>
